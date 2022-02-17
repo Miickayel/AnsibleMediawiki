@@ -1,0 +1,15 @@
+---
+- name: "test playbook"
+  hosts: all
+  #  vars:
+  #  user: vava
+  #  domains:
+  #          - domain: nakuna.org
+  #            php: yes
+  #          - domain: eatmango.org
+  #            php: no
+  
+  roles:
+          #- user
+          # - nginx
+    - mediawiki

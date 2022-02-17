@@ -1,0 +1,16 @@
+---
+# defaults file for mediawiki
+#
+lamp_packages:
+    - apache2
+    - mariadb-server
+    - libapache2-mod-php
+    - php-xml
+    - php-mbstring
+    - git
+    - php-bcmath
+    - php-apcu
+    - php-intl
+    - imagemagick
+
+

@@ -1,0 +1,37 @@
+---
+- name: "ddl mediawiki"
+  get_url:
+          url: https://releases.wikimedia.org/mediawiki/1.37/mediawiki-core-1.37.1.tar.gz
+          dest: /tmp/mediawiki.tgz
+
+- name: "cree dossier"
+  file:
+          path: /var/www/html/mediawiki
+          state: directory
+          mode: '0755'
+
+- name: "decompresser mediawiki"
+  unarchive:
+          src: /tmp/mediawiki.tgz
+          dest: /var/www/html/mediawiki
+          remote_src: yes
+
+- name: "mediawiki install"
+  apt:
+          name: mediawiki
+          state: present
+
+- name: "activation du site"
+  file:
+    src: /etc/mediawiki/mediawiki.conf
+    dest: /etc/apache2/sites-available/mediawiki.conf
+    state: link
+  notify: apache2 reload
+
+- name: "activation du site mediawiki"
+  file:
+    src: /var/lib/mediawiki/
+    dest: /var/www/mediawiki
+    state: link
+  notify: apache2 reload
+

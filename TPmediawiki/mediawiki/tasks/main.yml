@@ -1,0 +1,12 @@
+---
+# tasks file for mediawiki
+- name: "installation apache2"
+  include: apache2.yml
+
+- name: "installation php7.4"
+  include: mysql.yml
+
+- name: "installation mediawiki"
+  include: media.yml
+
+

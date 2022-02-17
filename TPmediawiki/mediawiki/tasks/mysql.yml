@@ -1,0 +1,5 @@
+---
+- name: "installation mysql"
+  apt:
+          name: php7.4-mysql
+          state: present
